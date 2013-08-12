@@ -1,0 +1,13 @@
+<h2>Listing all tasks</h2>
+<ul>
+	<% _.each(todos, function(todo) { %>
+		<li>
+			<span class="status"></span>
+			<span class="item">
+				<%= todo.get("item") %>
+			</span>
+			<span class="delete"></span>
+		</li>
+	<% }); %>
+	<li><input type="text" id="new_todo" placeholder="New Todo" /></li>
+</ul>
