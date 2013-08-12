@@ -18,10 +18,6 @@ require.config({
 
     "text": {
       deps: ["backbone", "underscore"]
-    },
-
-    "task": {
-      deps: ["backbone"]
     }
   }
 });
