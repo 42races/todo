@@ -1,0 +1,13 @@
+<h2>Listing all tasks</h2>
+<ul>
+	<% _.each(tasks, function(task) { %>
+		<li>
+			<span class="status"></span>
+			<span class="item">
+				<%= task.get("item") %>
+			</span>
+			<span class="delete"></span>
+		</li>
+	<% }); %>
+	<li><input type="text" id="new_task" placeholder="New Task" /></li>
+</ul>
