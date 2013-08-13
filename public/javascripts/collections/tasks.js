@@ -1,4 +1,4 @@
-define(["model/task.js"], function(Task){
+define(["backbone"], function(Task){
     var TaskList = Backbone.Collection.extend({
 	url: "/tasks"
     });

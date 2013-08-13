@@ -1,4 +1,4 @@
-define(function(){
+define(["backbone"], function(){
     var Task = Backbone.Model.extend({
 	urlRoot: "/tasks",
 	defaults: {

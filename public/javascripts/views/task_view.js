@@ -1,8 +1,8 @@
 define([
-    "models/task.js",
-    "collections/task_collection.js",
-    "text!templates/index.html",
-    "text!templates/show.html"
+    "/javascripts/models/task.js",
+    "/javascripts/collections/tasks.js",
+    "text!/javascripts/templates/index.html",
+    "text!/javascripts/templates/show.html"
 ], function(Task, TaskList, indexTemplate, showTemplate){
     var TaskView = Backbone.View.extend({
 	el: "body",

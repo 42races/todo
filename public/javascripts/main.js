@@ -22,8 +22,7 @@ require.config({
   }
 });
 
-require(["task", "routes"], function(Task) {
+require(["routes"], function(Task) {
   console.log("loading main...");
   Backbone.history.start();
-  Task.initialize();
 });

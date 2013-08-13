@@ -6,6 +6,7 @@ define(["views/task_view"], function(TaskView) {
     });
 
     var router = new Router();
+
     router.on("route:tasks", function() {
 	var taskList = new TaskView();
 	taskList.render();
