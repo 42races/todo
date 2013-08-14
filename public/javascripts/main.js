@@ -22,7 +22,11 @@ require.config({
   }
 });
 
-require(["routes"], function(Task) {
-  console.log("loading main...");
-  Backbone.history.start();
+require(["jquery", "backbone", "routes"], function($, Backbone) {
+    $.ajaxPrefilter(function(options, originalOptions, jqXHR){
+        options.url = options.url + ".json";
+    });
+
+    console.log("loading main...");
+    Backbone.history.start();
 });

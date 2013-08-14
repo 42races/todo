@@ -1,14 +1,17 @@
-define(["views/task_view"], function(TaskView) {
+define(["require", "backbone", "views/task_view"], function(require, Backbone, View) {
+
+    console.log("router");
     var Router = Backbone.Router.extend({
 	routes: {
 	    "": "tasks"
 	}
     });
 
-    var router = new Router();
+    var TaskListView = View.task_list_view;
 
+    var router = new Router();
     router.on("route:tasks", function() {
-	var taskList = new TaskView();
+	var taskList = new TaskListView();
 	taskList.render();
     });
 });
