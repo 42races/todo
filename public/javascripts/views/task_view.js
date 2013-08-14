@@ -41,10 +41,7 @@ define(
 	    },
 	    saveTask: function (ev) {
 	        var target = $(ev.currentTarget);
-	        var task = new Task({
-		    item: target.val(),
-		    status: "pending"
-	        });
+	        var task = new Task({ item: target.val().trim() });
 
 	        task.save(task.toJSON(), {
 		    success: function(task) {
