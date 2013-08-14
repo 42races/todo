@@ -3,5 +3,7 @@
   <span class="item">
     <%= task.get("item") %>
   </span>
-  <span class="delete"></span>
+  <span class="delete" data-id="<%= task.get('id') %>">
+    <i class="icon-trash"></i>
+  </span>
 </li>

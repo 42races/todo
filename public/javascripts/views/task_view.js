@@ -37,7 +37,8 @@ define(
 	        });
 	    },
 	    events: {
-	        "change #new-task": "saveTask"
+	        "change #new-task": "saveTask",
+		"click .delete": "deleteTask"
 	    },
 	    saveTask: function (ev) {
 	        var target = $(ev.currentTarget);
@@ -45,10 +46,20 @@ define(
 
 	        task.save(task.toJSON(), {
 		    success: function(task) {
+			target.val("");
 		        var task_view = new TaskView(task);
 		        task_view.render();
 		    }
 	        });
+	    },
+	    deleteTask: function(ev) {
+		var target = $(ev.currentTarget);
+		var task = new Task({ id: target.data().id });
+		task.destroy({
+		    success: function() {
+			target.parent().remove();
+		    }
+		});
 	    }
         });
         return({ task_list_view: TaskListView, task_view: TaskView});

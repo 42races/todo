@@ -1,12 +1,16 @@
-<input type="text" id="new-task" class="line-text-input" placeholder="New Task" />
-<ul class="task-list">
-  <% _.each(tasks, function(task) { %>
+ <div class="container tasks">
+  <input type="text" id="new-task" class="line-text-input" placeholder="New Task" />
+  <ul class="task-list">
+    <% _.each(tasks, function(task) { %>
     <li>
       <span class="status"></span>
       <span class="item">
         <%= task.get("item") %>
       </span>
-      <span class="delete"></span>
+      <span class="delete" data-id="<%= task.get('id') %>">
+	<i class="icon-trash"></i>
+      </span>
     </li>
-  <% }); %>
-</ul>
+    <% }); %>
+  </ul>
+</div>
