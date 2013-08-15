@@ -3,9 +3,10 @@ define(
         "models/task",
         "collections/tasks",
         "text!templates/index.html",
-        "text!templates/show.html"
+        "text!templates/show.html",
+	"text!templates/editor.html"
     ],
-    function(Task, TaskList, index_template, show_template){
+    function(Task, TaskList, index_template, show_template, editor_template){
 
         var TaskView = Backbone.View.extend({
             initialize: function(task) {
@@ -38,7 +39,9 @@ define(
 	    },
 	    events: {
 	        "change #new-task": "saveTask",
+		"change #edit-task": "updateTask",
 		"change .input-status": "updateStatus",
+		"dblclick .item": "makeEditable",
 		"click .delete": "deleteTask"
 	    },
 	    saveTask: function (ev) {
@@ -53,6 +56,18 @@ define(
 		    }
 	        });
 	    },
+	    updateTask: function(ev) {
+		var li = $(ev.currentTarget).parent().parent();
+		var task = new Task({ id: li.data().id });
+		task.fetch({ success: function() {
+		    task.save({ item: $(ev.currentTarget).val() }, {
+			success: function(task) {
+			    var template = _.template(show_template, { task: task });
+                            li.replaceWith(template);
+			}
+		    });
+		}});
+	    },
 	    updateStatus: function(ev) {
 		var li = $(ev.currentTarget).parent().parent();
                 var status = (ev.currentTarget.checked) ? "completed" : "pending"
@@ -65,6 +80,10 @@ define(
 		    },
                     validate: false
 		});
+	    },
+	    makeEditable: function(ev) {
+		var template = _.template(editor_template, { item: $(ev.currentTarget).html().trim() });
+		$(ev.currentTarget).html(template);
 	    },
 	    deleteTask: function(ev) {
 		var li = $(ev.currentTarget).parent();
