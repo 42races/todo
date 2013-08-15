@@ -31,13 +31,14 @@ define(
 	        var tasks = new TaskList();
 	        tasks.fetch({
 		    success: function(){
-		        var template = _.template(index_template, { tasks: tasks.models });
+		        var template = _.template(index_template, { tasks: tasks.models, show_template: show_template });
 		        that.$el.html(template);
 		    }
 	        });
 	    },
 	    events: {
 	        "change #new-task": "saveTask",
+		"change .input-status": "updateStatus",
 		"click .delete": "deleteTask"
 	    },
 	    saveTask: function (ev) {
@@ -52,12 +53,26 @@ define(
 		    }
 	        });
 	    },
+	    updateStatus: function(ev) {
+		var li = $(ev.currentTarget).parent().parent();
+                var status = (ev.currentTarget.checked) ? "completed" : "pending"
+		var task = new Task({ id: li.data().id, status: status });
+
+		task.save({ status: status }, {
+		    success: function(task) {
+                        var template = _.template(show_template, { task: task });
+                        li.replaceWith(template);
+		    },
+                    validate: false
+		});
+	    },
 	    deleteTask: function(ev) {
+		var li = $(ev.currentTarget).parent();
 		var target = $(ev.currentTarget);
-		var task = new Task({ id: target.data().id });
+		var task = new Task({ id: li.data().id });
 		task.destroy({
 		    success: function() {
-			target.parent().remove();
+			li.remove();
 		    }
 		});
 	    }

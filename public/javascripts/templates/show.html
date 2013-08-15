@@ -1,9 +1,15 @@
-<li>
-  <span class="status"></span>
+<li data-id="<%= task.get('id') %>">
+  <span class="status">
+    <% if(task.get("status") === "completed") { %>
+      <input type="checkbox" class="input-status" value="<%= task.get('status') %>" checked />
+    <% } else {%>
+      <input type="checkbox" class="input-status" value="<%= task.get('status') %>" />
+    <% } %>
+  </span>
   <span class="item">
     <%= task.get("item") %>
   </span>
-  <span class="delete" data-id="<%= task.get('id') %>">
+  <span class="delete">
     <i class="icon-trash"></i>
   </span>
 </li>
