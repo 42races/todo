@@ -1,0 +1,8 @@
+ <div class="container bookmarks">
+  <button id="new-bookmark" class="btn">+ Bookmark</button>
+  <ul class="task-list">
+    <% _.each(bookmarks, function(bookmark) { %>
+      <%= _.template(show_template, { bookmark: bookmark }) %>
+    <% }); %>
+  </ul>
+</div>

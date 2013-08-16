@@ -1,0 +1,31 @@
+<li data-id="<%= bookmark.get('id') %>">
+  <div class="title">
+    <%=  bookmark.get("title") %>
+  </div>
+
+  <div class="url">
+    <%= bookmark.get("url") %>
+  </div>
+
+  <div>
+    <%= bookmark.get("description") %>
+  </div>
+
+  <div class="tags">
+    <%= bookmark.get("tags") %>
+  </div>
+
+  <div class="actions">
+    <span class="permission">
+      <% if (bookmark.get("permission") === "public") { %>
+      <i class="icon"></i>
+      <% } else { %>
+      <i class="icon-lock"></i>
+      <% } %>
+    </span>
+
+    <span class="delete">
+      <i class="icon-trash"></i>
+    </span>
+  </div>
+</li>

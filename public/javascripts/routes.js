@@ -4,9 +4,10 @@ define(
 	"backbone",
 	"views/task_view",
 	"views/home_view",
-	"views/form_view"
+	"views/form_view",
+	"views/bookmark_view"
     ],
-    function(require, Backbone, TaskView, HomeView, FormView) {
+    function(require, Backbone, TaskView, HomeView, FormView, BookmarkView) {
 
 	console.log("router");
 	var Router = Backbone.Router.extend({
@@ -15,7 +16,8 @@ define(
 		"login": "login",
 		"register": "register",
 		"forgot_password": "forgot_password",
-		"tasks": "tasks"
+		"tasks": "tasks",
+		"bookmarks": "bookmarks"
 	    }
 	});
 
@@ -43,11 +45,16 @@ define(
 	    form.render();
 	});
 
-
 	router.on("route:tasks", function() {
 	    var TaskListView = TaskView.task_list_view;
 	    var taskList = new TaskListView();
 	    taskList.render();
+	});
+
+	router.on("route:bookmarks", function() {
+	    var BookmarkListView = BookmarkView.bookmark_list_view;
+	    var bookmarkList = new BookmarkListView();
+	    bookmarkList.render();
 	});
     }
 );

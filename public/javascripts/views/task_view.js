@@ -26,7 +26,7 @@ define(
         });
 
         var TaskListView = Backbone.View.extend({
-	    el: "body",
+	    el: ".body",
 	    render: function() {
 	        var that = this;
 	        var tasks = new TaskList();
