@@ -11,17 +11,7 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-ActiveRecord::Schema.define(version: 20130816060405) do
-
-  create_table "bookmarks", force: true do |t|
-    t.string   "title"
-    t.string   "tags"
-    t.string   "url"
-    t.text     "description"
-    t.integer  "permission"
-    t.datetime "created_at"
-    t.datetime "updated_at"
-  end
+ActiveRecord::Schema.define(version: 20130812151608) do
 
   create_table "tasks", force: true do |t|
     t.string   "item"

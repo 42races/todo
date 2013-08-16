@@ -3,9 +3,9 @@ class CreateBookmarks < ActiveRecord::Migration
     create_table :bookmarks do |t|
       t.string :title
       t.string :tags
-      t.string :url
+      t.string :bm_url
       t.text :description
-      t.integer :permission
+      t.string :permission
 
       t.timestamps
     end
