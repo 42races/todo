@@ -1,0 +1,23 @@
+<li data-id="<%= note.get('id') %>">
+  <div class="title">
+    <%=  note.get("title") %>
+  </div>
+
+  <div>
+    <%= note.get("content") %>
+  </div>
+
+  <div class="actions">
+    <span class="permission">
+      <% if (note.get("permission") === "public") { %>
+      <i class="icon"></i>
+      <% } else { %>
+      <i class="icon-lock"></i>
+      <% } %>
+    </span>
+
+    <span class="delete">
+      <i class="icon-trash"></i>
+    </span>
+  </div>
+</li>

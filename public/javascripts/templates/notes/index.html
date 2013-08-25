@@ -1,0 +1,9 @@
+<div class="container notes">
+  <button id="new-note" class="btn">+ Note</button>
+  <ul class="note-list">
+    <% _.each(notes, function(note) { %>
+    <%= _.template(show_template, { note: note }) %>
+    <% }); %>
+  </ul>
+</div>
+
