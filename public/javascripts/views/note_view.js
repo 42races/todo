@@ -3,9 +3,10 @@ define(
 	"backbone",
 	"collections/notes",
 	"text!templates/notes/index",
-	"text!templates/notes/show"
+	"text!templates/notes/show",
+	"text!templates/notes/form"
     ],
-    function(Backbone, NoteList, index_template, show_template) {
+    function(Backbone, NoteList, index_template, show_template, form) {
 	var NoteListView = Backbone.View.extend({
 	    el: ".body",
 	    render: function() {
@@ -17,6 +18,13 @@ define(
 			that.$el.html(template);
 		    }
 		});
+	    },
+	    events: {
+		"click #new-note": "newNote"
+	    },
+	    newNote: function() {
+		var template = _.template(form);
+		this.$el.html(template);
 	    }
 	});
 

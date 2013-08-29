@@ -22,20 +22,21 @@ define(
 	    },
 	    events: {
 		"click #new-bookmark": "newBookmark",
-		"submit #bookmark-form": "saveBookmark",
-		"click #cancel": "cancelBookmark"
+		"submit .bookmark-form": "saveBookmark",
+		"click #cancel-bookmark": "cancelBookmark"
 	    },
 	    newBookmark: function(ev) {
-		console.log("new bookmark");
 		var template = _.template(form);
-		this.$el.html(template);
+		$.modal(template());
 	    },
 	    saveBookmark: function(ev) {
 		console.log("saving");
 		return false;
 	    },
-	    cancelBookmark: function() {
-		console.log("cancel");
+	    cancelBookmark: function(ev) {
+		ev.preventDefault();
+		console.log("cancel clicked");
+		$.modal.close();
 		return false;
 	    }
 	});
