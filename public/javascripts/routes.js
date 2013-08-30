@@ -10,7 +10,6 @@ define(
     ],
     function(require, Backbone, TaskView, HomeView, FormView, BookmarkView, NoteView) {
 
-	console.log("router");
 	var Router = Backbone.Router.extend({
 	    routes: {
 		"": "home",
@@ -64,5 +63,7 @@ define(
 	    var noteList = new NoteListView();
 	    noteList.render();
 	});
+
+        return router;
     }
 );

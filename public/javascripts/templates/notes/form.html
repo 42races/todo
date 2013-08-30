@@ -1,20 +1,23 @@
 <div class="note-form">
   <form id="note-form">
+    <% if(note.id) { %>
+    <input type="hidden" name="id" id="note-id" value="<%= note.get('id') %>"/>
+    <% } %>
     <div class="field">
       <label for="note_title">Title:</label>
-      <input type="text" name="title" id="note-title" />
+      <input type="text" name="title" id="note-title" value="<%= note.get('title') %>"/>
     </div>
     <div class="field">
       <label for="note_content">Content:</label>
-      <input type="textarea" name="content" id="note-content" />
+      <input type="textarea" name="content" id="note-content" value="<%= note.get('content') %>" />
     </div>
     <div class="field">
-      <input type="checkbox" name="permission" id="note-permission" value="1" />
+      <input type="checkbox" name="permission" id="note-permission" value="<%= note.get('permission') %>" />
       <label for="note_permission">Make this private:</label>
     </div>
     <div class="field">
       <button type="submit" id="save-note">Save</button>
-      <button id="cancel-note">Cancel</button>
+      <button type="button" id="cancel-note">Cancel</button>
     </div>
   </form>
 </div>
