@@ -2,9 +2,9 @@ define(
     [
         "models/task",
         "collections/tasks",
-        "text!templates/index.html",
-        "text!templates/show.html",
-	"text!templates/editor.html"
+        "text!templates/tasks/index.html",
+        "text!templates/tasks/show.html",
+	"text!templates/tasks/editor.html"
     ],
     function(Task, TaskList, index_template, show_template, editor_template){
 

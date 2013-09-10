@@ -1,9 +1,9 @@
 define(
     [
 	"backbone",
-	"text!templates/login.html",
-	"text!templates/register.html",
-	"text!templates/forgot.html"
+	"text!templates/shared/login.html",
+	"text!templates/shared/register.html",
+	"text!templates/shared/forgot.html"
     ],
     function(Backbone, login_template, register_template, forgot_template) {
 	var LoginFormView = Backbone.View.extend({
