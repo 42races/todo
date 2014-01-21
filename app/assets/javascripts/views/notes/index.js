@@ -3,9 +3,9 @@ define(
         "backbone",
         "models/note",
         "collections/notes",
-        "text!templates/notes/index",
-        "text!templates/notes/show",
-        "text!templates/notes/form"
+        "text!templates/notes/index.html",
+        "text!templates/notes/show.html",
+        "text!templates/notes/form.html"
     ],
     function(Backbone, Note, NoteList, index_template, show_template, form) {
         var NoteListView = Backbone.View.extend({
