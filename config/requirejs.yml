@@ -1,0 +1,17 @@
+paths:
+    jquery: "lib/jquery"
+    underscore: "lib/underscore"
+    backbone: "lib/backbone"
+    text: "lib/text"
+    jquery.simplemodal: "lib/jquery.simplemodal"
+shim:
+    backbone:
+        deps: [underscore, jquery]
+        exports: Backbone
+    underscore:
+        exports: _
+    text:
+        deps: [backbone, underscore]
+    jquery.simplemodal:
+        deps: [jquery]
+
