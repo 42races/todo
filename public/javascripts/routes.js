@@ -6,9 +6,9 @@ define(
         "views/home_view",
         "views/form_view",
         "views/bookmark_view",
-        "views/note_view"
+        "views/notes/index"
     ],
-    function(require, Backbone, TaskListView, HomeView, FormView, BookmarkView, NoteView) {
+    function(require, Backbone, TaskListView, HomeView, FormView, BookmarkView, NoteListView) {
 
         var Router = Backbone.Router.extend({
             routes: {
@@ -59,7 +59,6 @@ define(
         });
 
         router.on("route:notes", function() {
-            var NoteListView = NoteView.note_list_view;
             var noteList = new NoteListView();
             noteList.render();
         });
