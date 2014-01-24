@@ -22,6 +22,7 @@ define [
       'click #cancel-note': 'cancel'
       'click .delete': 'deleteNote'
       'click .edit': 'editNote'
+      'change #note-permission': 'changePermission'
 
     newNote: =>
       note = new Note()
@@ -57,3 +58,10 @@ define [
       e.preventDefault()
       e.stopPropagation()
       Backbone.history.navigate('#/notes', trigger: true)
+
+    changePermission: (e) =>
+      cb = $(e.currentTarget)
+      if cb.is(':checked')
+        cb.val('private')
+      else
+        cb.val('public')
