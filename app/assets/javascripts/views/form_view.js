@@ -15,7 +15,7 @@ define(
         });
 
         var RegisterFormView = Backbone.View.extend({
-            el: ".body",
+            el: "#body",
             render: function() {
                 var template = _.template(register_template);
                 this.$el.html(template);
@@ -23,13 +23,12 @@ define(
         });
 
         var ForgotFormView = Backbone.View.extend({
-            el: ".body",
+            el: "#body",
             render: function() {
                 var template = _.template(forgot_template);
                 this.$el.html(template);
             }
         });
-
 
         return ({
             login_form_view: LoginFormView,
