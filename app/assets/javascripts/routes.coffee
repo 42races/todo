@@ -1,15 +1,16 @@
 define [
-    'require'
-    'backbone'
-    'views/tasks/index'
-    'views/home_view'
-    'views/form_view'
-    'views/bookmark_view'
-    'views/notes/index'],
+  'require',
+  'backbone',
+  'views/tasks/index',
+  'views/home_view',
+  'views/form_view',
+  'views/bookmark_view',
+  'views/notes/index'],
 (require, Backbone, TaskListView, HomeView, FormView, BookmarkView, NoteListView) ->
+
   class AppRouter extends Backbone.Router
     routes:
-      '': 'login'
+      '': 'home'
       'login': 'login'
       'register': 'register'
       'forgot_password': 'forgot_password'
@@ -19,7 +20,7 @@ define [
 
   router = new AppRouter()
 
-  router.on 'route:home' ->
+  router.on 'route:home', ->
     homePage = new HomeView()
     homePage.render()
 
