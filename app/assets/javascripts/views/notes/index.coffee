@@ -7,7 +7,7 @@ define [
   'text!templates/notes/form.html'],
 (Backbone, Note, NoteList, index_template, show_template, form) ->
   class NoteListView extends Backbone.View
-    el: '.body'
+    el: '#body'
 
     render: =>
       notes = new NoteList()
@@ -43,6 +43,8 @@ define [
       note_details = $(e.currentTarget).serializeObject()
       note = new Note(note_details)
       note.save note_details
+      # TODO: cleanup this hack, exponential requests
+      Backbone.history.navigate('#/', trigger: true)
       Backbone.history.navigate('#/notes', trigger: true)
 
     deleteNote: (e) =>
