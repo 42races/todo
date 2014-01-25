@@ -9,15 +9,19 @@
     </div>
     <div class="field">
       <label for="note_content">Content:</label>
-      <input type="textarea" name="content" id="note-content" value="<%= note.get('content') %>" />
+      <textarea name="content" id="note-content"><%= note.get('content') %></textarea>
     </div>
     <div class="field">
+      <% if(note.get('permission') === 'private') { %>
+      <input type="checkbox" name="permission" checked id="note-permission" value="<%= note.get('permission') %>" />
+      <% } else { %>
       <input type="checkbox" name="permission" id="note-permission" value="<%= note.get('permission') %>" />
+      <% } %>
       <label for="note_permission">Make this private:</label>
     </div>
     <div class="field">
-      <button type="submit" id="save-note">Save</button>
-      <button type="button" id="cancel-note">Cancel</button>
+      <button id="save-note">Save</button>
+      <button id="cancel-note">Cancel</button>
     </div>
   </form>
 </div>
