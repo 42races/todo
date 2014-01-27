@@ -4,9 +4,9 @@ define [
   'views/tasks/index',
   'views/home_view',
   'views/form_view',
-  'views/bookmark_view',
+  'views/bookmarks/index',
   'views/notes/index'],
-(require, Backbone, TaskListView, HomeView, FormView, BookmarkView, NoteListView) ->
+(require, Backbone, TaskListView, HomeView, FormView, BookmarkListView, NoteListView) ->
 
   class AppRouter extends Backbone.Router
     routes:
@@ -44,7 +44,6 @@ define [
     taskList.render()
 
   router.on 'route:bookmarks', ->
-    BookmarkListView = BookmarkView.bookmark_list_view
     bookmarkList = new BookmarkListView()
     bookmarkList.render()
 
