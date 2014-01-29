@@ -4,8 +4,8 @@ define ['backbone',
     class Bookmark extends Backbone.Model
       urlRoot: '/bookmarks'
       defaults:
-        permission: 'private'
+        permission: 'public'
 
-      validate: (attr, options) ->
-        if (attr.bm_url == '') || attr.bm_url.match(/^\s$/)
-          Message.blank_url
+      # validate: (attr, options) ->
+      #   if (attr.bm_url == '') || attr.bm_url.match(/^\s$/)
+      #     return Message.blank_url

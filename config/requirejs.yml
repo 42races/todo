@@ -3,7 +3,6 @@ paths:
     underscore: "lib/underscore"
     backbone: "lib/backbone"
     text: "lib/text"
-    jquery.simplemodal: "lib/jquery.simplemodal"
 shim:
     backbone:
         deps: [underscore, jquery]

@@ -1,27 +1,34 @@
 <div class="bookmark-form">
   <form id="bookmark-form">
+    <% if(bookmark.id) { %>
+    <input type="hidden" name="id" id="bookmark-id" value="<%= bookmark.get('id') %>"/>
+    <% } %>
     <div class="field">
       <label for="bookmark_title">Title:</label>
-      <input type="text" name="bookmark[title]" id="bookmark-title" />
+      <input type="text" name="title" id="bookmark-title" value="<%= bookmark.get('title') %>" />
     </div>
     <div class="field">
       <label for="bookmark_bm_url">Url:</label>
-      <input type="text" name="bookmark[bm_url]" id="bookmark-bm_url" />
+      <input type="text" name="bm_url" id="bookmark-bm_url" value="<%= bookmark.get('bm_url') %>" />
     </div>
     <div class="field">
       <label for="bookmark_description">Description:</label>
-      <input type="text" name="bookmark[description]" id="bookmark-description" />
+      <textarea name="description" id="bookmark-description"><%= bookmark.get('description') %></textarea>
     </div>
     <div class="field">
       <label for="bookmark_tags">tags:</label>
-      <input type="text" name="bookmark[tags]" id="bookmark-tags" />
+      <input type="text" name="tags" id="bookmark-tags" value="<%= bookmark.get('tags') %>" />
     </div>
     <div class="field">
-      <input type="checkbox" name="bookmark[permission]" id="bookmark-permission" value="1" />
+      <% if(bookmark.get('permission') === 'private') { %>
+        <input type="checkbox" name="permission" checked id="bookmark-permission" value="<%= bookmark.get('permission') %>" />
+      <% } else { %>
+        <input type="checkbox" name="permission" id="bookmark-permission" value="<%= bookmark.get('permission') %>" />
+      <% } %>
       <label for="bookmark_permission">Make this private:</label>
     </div>
     <div class="field">
-      <button type="submit" id="save-bookmark">Save</button>
+      <button id="save-bookmark">Save</button>
       <button id="cancel-bookmark">Cancel</button>
     </div>
   </form>

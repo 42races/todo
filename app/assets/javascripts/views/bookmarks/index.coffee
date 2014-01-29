@@ -19,30 +19,38 @@ define [
 
     events:
       'click #new-bookmark': 'newBookmark'
-      'submit .bookmark-form': 'saveBookmark'
+      'submit #bookmark-form': 'saveBookmark'
       'click #cancel-bookmark': 'cancelBookmark'
       'click .edit': 'editBookmark'
       'click .delete': 'deleteBookmark'
 
-    newBookmark: (ev) ->
-      t = _.template(form);
-      $.modal(t);
+    newBookmark: (e) ->
+      bookmark = new Bookmark()
+      t = _.template(form, bookmark: bookmark)
+      @$el.html(t)
 
-    editBookmark: (ev) ->
-      li = $(ev.currentTarget).closest('li')
+    editBookmark: (e) =>
+      li = $(e.currentTarget).closest('li')
       bookmark = new Bookmark(id: li.data().id)
       bookmark.fetch
-        success: ->
+        success: =>
           t = _.template(form, bookmark: bookmark)
-          $.modal(t)
+          @$el.html(t)
 
-    saveBookmark: (ev) ->
-      console.log('saving');
+    saveBookmark: (e) =>
+      e.preventDefault()
+      bookmark_details = $(e.currentTarget).serializeObject()
+      bm = new Bookmark(bookmark_details)
+      bm.save bookmark_details,
+        success: ->
+          Backbone.history.navigate('#/', trigger: true)
+          Backbone.history.navigate('#/bookmarks', trigger: true)
+        error: (data) ->
+          cosole.log("error")
 
-    cancelBookmark: (ev) ->
-      ev.preventDefault();
-      console.log('cancel clicked');
-      $.modal.close();
+    cancelBookmark: (e) ->
+      e.preventDefault()
+      Backbone.history.navigate('#/bookmarks', trigger: true)
 
     deleteBookmark: (e) ->
       li = $(e.currentTarget).closest('li')
