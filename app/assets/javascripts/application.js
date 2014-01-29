@@ -1,4 +1,4 @@
-require(["jquery", "backbone", "routes", "jquery.simplemodal"], function($, Backbone) {
+require(["jquery", "backbone", "routes"], function($, Backbone) {
     $.ajaxPrefilter(function(options, originalOptions, jqXHR) {
         options.url = options.url + ".json";
     });
