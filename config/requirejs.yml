@@ -3,6 +3,8 @@ paths:
     underscore: "lib/underscore"
     backbone: "lib/backbone"
     text: "lib/text"
+    bootstrap: "lib/bootstrap.min"
+
 shim:
     backbone:
         deps: [underscore, jquery]
@@ -11,6 +13,6 @@ shim:
         exports: _
     text:
         deps: [backbone, underscore]
-    jquery.simplemodal:
+    bootstrap:
         deps: [jquery]
 

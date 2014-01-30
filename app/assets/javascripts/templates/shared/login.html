@@ -1,10 +1,13 @@
-<div class="login-register-form">
-  <form id="login-form">
-    <label for="user_login">Username or Email:</label>
-    <input type="text" name="user[login]" id="user-login" />
-    <label for="user_password">Password:</label>
-    <input type="password" name="user[password]" id="user-password" />
-    <input type="submit" value="Sign In"/>
+<div class="container">
+  <form class="form-signin">
+    <h2 class="form-signin-heading">Please sign in</h2>
+    <input type="text" name='user[login]' id='user-login' class="form-control" placeholder="Email address" autofocus>
+    <input type="password" name="user[password]" id="user-password" class="form-control" placeholder="Password">
+    <label class="checkbox">
+      <input type="checkbox" value="remember-me"> Remember me
+      <small><a href="#/forgot_password">Forgot your password ?</a></small>
+    </label>
+
+    <button class="btn btn-lg btn-primary btn-block" type="submit">Sign in</button>
   </form>
-  <a href="#/forgot_password">Forgot your password ?</a>
 </div>

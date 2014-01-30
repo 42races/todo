@@ -2,7 +2,7 @@ define [
   'require',
   'backbone',
   'views/tasks/index',
-  'views/home_view',
+  'views/home/index',
   'views/form_view',
   'views/bookmarks/index',
   'views/notes/index'],
