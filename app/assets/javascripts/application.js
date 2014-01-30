@@ -1,4 +1,4 @@
-require(["jquery", "backbone", "routes"], function($, Backbone) {
+require(["jquery", "backbone", "routes", "bootstrap"], function($, Backbone) {
     $.ajaxPrefilter(function(options, originalOptions, jqXHR) {
         options.url = options.url + ".json";
     });
