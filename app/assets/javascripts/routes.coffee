@@ -3,10 +3,12 @@ define [
   'backbone',
   'views/tasks/index',
   'views/home/index',
-  'views/form_view',
+  'views/user/sign_in',
+  'views/user/sign_up',
+  'views/user/forgot',
   'views/bookmarks/index',
   'views/notes/index'],
-(require, Backbone, TaskListView, HomeView, FormView, BookmarkListView, NoteListView) ->
+(require,Backbone, TaskListView, HomeView, LoginFormView, RegisterFormView, ForgotFormView, BookmarkListView, NoteListView) ->
 
   class AppRouter extends Backbone.Router
     routes:
@@ -25,17 +27,14 @@ define [
     homePage.render()
 
   router.on 'route:login', ->
-    LoginFormView = FormView.login_form_view
     form = new LoginFormView()
     form.render()
 
   router.on 'route:register', ->
-    RegisterFormView = FormView.register_form_view
     form = new RegisterFormView()
     form.render()
 
   router.on 'route:forgot_password', ->
-    ForgotFormView = FormView.forgot_form_view
     form = new ForgotFormView()
     form.render()
 
